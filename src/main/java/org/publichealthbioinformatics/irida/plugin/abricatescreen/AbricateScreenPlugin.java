@@ -1,4 +1,4 @@
-package ca.corefacility.bioinformatics.irida.plugins;
+package org.publichealthbioinformatics.irida.plugin.abricatescreen;
 
 import java.awt.Color;
 import java.util.Optional;
@@ -18,16 +18,16 @@ import ca.corefacility.bioinformatics.irida.service.workflow.IridaWorkflowsServi
  * An example {@link IridaPlugin} implementation which will extract some
  * information from the sequencing reads.
  */
-public class ExamplePlugin extends Plugin {
+public class AbricateScreenPlugin extends Plugin {
 
 	/**
 	 * The {@link AnalysisType} used by this plugin. This wraps around a string and
 	 * is used to store the type of the analysis pipeline (which should be unique
 	 * for each pipeline).
 	 */
-	public static final AnalysisType READ_INFO = new AnalysisType("READ_INFO");
+	public static final AnalysisType ABRICATE_SCREEN = new AnalysisType("ABRICATE_SCREEN");
 
-	public ExamplePlugin(PluginWrapper wrapper) {
+	public AbricateScreenPlugin(PluginWrapper wrapper) {
 		super(wrapper);
 	}
 
@@ -59,7 +59,7 @@ public class ExamplePlugin extends Plugin {
 		 */
 		@Override
 		public AnalysisType getAnalysisType() {
-			return READ_INFO;
+			return ABRICATE_SCREEN;
 		}
 
 		/**
@@ -67,14 +67,14 @@ public class ExamplePlugin extends Plugin {
 		 * <strong>id</strong> entry in the <strong>irida_workflow.xml</strong> file.
 		 * 
 		 * <pre>
-		 * {@code <id>79d90ca8-00ae-441b-b5c7-193c9e85a968</id>}
+		 * {@code <id>39eba385-5032-4564-8d6d-91a815b6eb50</id>}
 		 * </pre>
 		 * 
 		 * @return A {@link UUID} defining the id of this pipeline.
 		 */
 		@Override
 		public UUID getDefaultWorkflowUUID() {
-			return UUID.fromString("79d90ca8-00ae-441b-b5c7-193c9e85a968");
+			return UUID.fromString("39eba385-5032-4564-8d6d-91a815b6eb50");
 		}
 
 		/*******************************************************************************
@@ -123,7 +123,7 @@ public class ExamplePlugin extends Plugin {
 		@Override
 		public Optional<AnalysisSampleUpdater> getUpdater(MetadataTemplateService metadataTemplateService,
 				SampleService sampleService, IridaWorkflowsService iridaWorkflowsService) throws IridaPluginException {
-			return Optional.of(new ExamplePluginUpdater(metadataTemplateService, sampleService, iridaWorkflowsService));
+			return Optional.of(new AbricateScreenPluginUpdater(metadataTemplateService, sampleService, iridaWorkflowsService));
 		}
 	}
 }
