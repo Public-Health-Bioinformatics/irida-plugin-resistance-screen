@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.util.*;
 
+import com.google.common.annotations.VisibleForTesting;
 import com.google.common.collect.ImmutableMap;
 
 import ca.corefacility.bioinformatics.irida.exceptions.IridaWorkflowNotFoundException;
@@ -133,7 +134,8 @@ public class AbricateScreenPluginUpdater implements AnalysisSampleUpdater {
 	 * @throws IOException             If there was an error reading the file.
 	 * @throws PostProcessingException If there was an error parsing the file.
 	 */
-	private List<Map<String, String>> parseGeneDetectionStatusFile(Path geneDetectionStatusFilePath) throws IOException, PostProcessingException {
+	@VisibleForTesting
+	List<Map<String, String>> parseGeneDetectionStatusFile(Path geneDetectionStatusFilePath) throws IOException, PostProcessingException {
 		List<Map<String, String>> geneDetectionStatuses = new ArrayList<Map<String, String>>();
 
 		BufferedReader geneDetectionStatusReader = new BufferedReader(new FileReader(geneDetectionStatusFilePath.toFile()));

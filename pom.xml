@@ -21,8 +21,10 @@
 		<!-- The version of IRIDA your plugin must be compiled against. -->
 		<irida.version.compiletime>19.01.3</irida.version.compiletime>
 		
-		<!-- Version of the pf4j dependency -->
+		<!-- Dependency Versions -->
 		<pf4j.version>2.4.0</pf4j.version>
+		<junit.version>4.11</junit.version>
+		<mockito.version>1.10.19</mockito.version>
 
 		<!-- Version of Java to target for this plugin -->
 		<java.version>1.8</java.version>
@@ -46,6 +48,21 @@
 			<version>${pf4j.version}</version>
 			<scope>provided</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+			<version>${mockito.version}</version>
+			<scope>test</scope>
+		</dependency>
+
 	</dependencies>
 
 	<!-- You should normally not have to modify any of the below information -->
