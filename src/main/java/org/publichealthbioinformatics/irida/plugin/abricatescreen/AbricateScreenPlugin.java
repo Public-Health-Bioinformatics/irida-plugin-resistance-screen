@@ -8,6 +8,9 @@ import org.pf4j.Extension;
 import org.pf4j.Plugin;
 import org.pf4j.PluginWrapper;
 
+import ca.corefacility.bioinformatics.irida.model.sample.Sample;
+import ca.corefacility.bioinformatics.irida.plugins.IridaPlugin;
+import ca.corefacility.bioinformatics.irida.plugins.IridaPluginException;
 import ca.corefacility.bioinformatics.irida.model.workflow.analysis.type.AnalysisType;
 import ca.corefacility.bioinformatics.irida.pipeline.results.updater.AnalysisSampleUpdater;
 import ca.corefacility.bioinformatics.irida.service.sample.MetadataTemplateService;
@@ -67,14 +70,14 @@ public class AbricateScreenPlugin extends Plugin {
 		 * <strong>id</strong> entry in the <strong>irida_workflow.xml</strong> file.
 		 * 
 		 * <pre>
-		 * {@code <id>39eba385-5032-4564-8d6d-91a815b6eb50</id>}
+		 * {@code <id>3b697fef-2811-45cf-8634-b89f6cfdb7cb</id>}
 		 * </pre>
 		 * 
 		 * @return A {@link UUID} defining the id of this pipeline.
 		 */
 		@Override
 		public UUID getDefaultWorkflowUUID() {
-			return UUID.fromString("39eba385-5032-4564-8d6d-91a815b6eb50");
+			return UUID.fromString("3b697fef-2811-45cf-8634-b89f6cfdb7cb");
 		}
 
 		/*******************************************************************************
@@ -92,7 +95,7 @@ public class AbricateScreenPlugin extends Plugin {
 		 */
 		@Override
 		public Optional<Color> getBackgroundColor() {
-			return Optional.of(Color.decode("#dd1c77"));
+			return Optional.of(Color.decode("#07deed"));
 		}
 
 		/**

@@ -12,7 +12,7 @@
 	<properties>
 		<!-- Information used to define properties about a plugin. Please see the PF4J docs for more details https://pf4j.org/doc/getting-started.html -->
 		<plugin.id>abricate-screen</plugin.id>
-		<plugin.class>org.publichealthbioinformatics.irida.plugin.AbricateScreenPlugin</plugin.class>
+		<plugin.class>org.publichealthbioinformatics.irida.plugin.abricatescreen.AbricateScreenPlugin</plugin.class>
 		<plugin.version>0.1.0</plugin.version>
 		<plugin.provider>Dan Fornika</plugin.provider>
 		<plugin.dependencies></plugin.dependencies>

@@ -1,21 +1,91 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <iridaWorkflow>
-  <id>79d90ca8-00ae-441b-b5c7-193c9e85a968</id>
-  <name>ReadInfo</name>
+  <id>3b697fef-2811-45cf-8634-b89f6cfdb7cb</id>
+  <name>abricate-screen</name>
   <version>0.1.0</version>
-  <analysisType>READ_INFO</analysisType>
+  <analysisType>ABRICATE_SCREEN</analysisType>
   <inputs>
-    <sequenceReadsPaired>sequence_reads</sequenceReadsPaired>
+    <sequenceReadsPaired>sequence_reads_paired</sequenceReadsPaired>
     <requiresSingleSample>true</requiresSingleSample>
   </inputs>
   <parameters>
-    <parameter name="Grep1-4-pattern" defaultValue="^@">
-      <toolParameter toolId="Grep1" parameterName="pattern"/>
+    <parameter name="shovill-1-adv.nocorr" defaultValue="true">
+      <toolParameter toolId="toolshed.g2.bx.psu.edu/repos/iuc/shovill/shovill/1.0.4" parameterName="adv.nocorr" label="Disable post-assembly correction" type="boolean"/>
+    </parameter>
+    <parameter name="shovill-1-adv.mincov" defaultValue="2">
+      <toolParameter toolId="toolshed.g2.bx.psu.edu/repos/iuc/shovill/shovill/1.0.4" parameterName="adv.mincov" label="Minimum contig coverage" type="integer"/>
+    </parameter>
+    <parameter name="shovill-1-trim" defaultValue="false">
+      <toolParameter toolId="toolshed.g2.bx.psu.edu/repos/iuc/shovill/shovill/1.0.4" parameterName="trim" label="Trim reads" type="boolean"/>
+    </parameter>
+    <parameter name="shovill-1-adv.namefmt" defaultValue="contig%05d">
+      <toolParameter toolId="toolshed.g2.bx.psu.edu/repos/iuc/shovill/shovill/1.0.4" parameterName="adv.namefmt" label="Contig name format" type="text"/>
+    </parameter>
+    <parameter name="shovill-1-adv.depth" defaultValue="100">
+      <toolParameter toolId="toolshed.g2.bx.psu.edu/repos/iuc/shovill/shovill/1.0.4" parameterName="adv.depth" label="Depth" type="integer"/>
+    </parameter>
+    <parameter name="shovill-1-adv.gsize" defaultValue="">
+      <toolParameter toolId="toolshed.g2.bx.psu.edu/repos/iuc/shovill/shovill/1.0.4" parameterName="adv.gsize" label="Estimated genome size" type="text"/>
+    </parameter>
+    <parameter name="shovill-1-adv.opts" defaultValue="">
+      <toolParameter toolId="toolshed.g2.bx.psu.edu/repos/iuc/shovill/shovill/1.0.4" parameterName="adv.opts" label="Extra SPAdes options" type="text"/>
+    </parameter>
+    <parameter name="shovill-1-adv.minlen" defaultValue="0">
+      <toolParameter toolId="toolshed.g2.bx.psu.edu/repos/iuc/shovill/shovill/1.0.4" parameterName="adv.minlen" label="Minimum contig length" type="integer"/>
+    </parameter>
+    <parameter name="shovill-1-assembler" defaultValue="spades">
+      <toolParameter toolId="toolshed.g2.bx.psu.edu/repos/iuc/shovill/shovill/1.0.4" parameterName="assembler" label="Assembler to use" type="select"/>
+    </parameter>
+    <parameter name="abricate-2-adv.db" defaultValue="card">
+      <toolParameter toolId="toolshed.g2.bx.psu.edu/repos/iuc/abricate/abricate/0.9.3" parameterName="adv.db"/>
+    </parameter>
+    <parameter name="abricate-2-adv.min_dna_id" defaultValue="75.0">
+      <toolParameter toolId="toolshed.g2.bx.psu.edu/repos/iuc/abricate/abricate/0.9.3" parameterName="adv.min_dna_id"/>
+    </parameter>
+    <parameter name="screen_abricate_report-3-abricate_screening_file" required="true">
+      <dynamicSource>
+          <galaxyToolDataTable name="abricate_report_screening_files" displayColumn="name" parameterColumn="value" />
+      </dynamicSource>
+      <toolParameter toolId="testtoolshed.g2.bx.psu.edu/repos/dfornika/screen_abricate_report/screen_abricate_report/0.1.0" parameterName="screening_file"/>
     </parameter>
   </parameters>
   <outputs>
-    <output name="hash.txt" fileName="hash.txt"/>
-    <output name="read-count.txt" fileName="read-count.txt"/>
+    <output name="abricate_report_screened" fileName="abricate_report_screened.tsv"/>
+    <output name="gene_detection_status" fileName="gene_detection_status.tsv"/>
+    <output name="abricate_report_full" fileName="abricate_report_full.tsv"/>
+    <output name="quast" fileName="quast.tsv"/>
+    <output name="assembly" fileName="assembly.fasta"/>
   </outputs>
-  <toolRepositories/>
+  <toolRepositories>
+    <repository>
+      <name>shovill</name>
+      <owner>iuc</owner>
+      <url>https://toolshed.g2.bx.psu.edu</url>
+      <revision>865119fcb694</revision>
+    </repository>
+    <repository>
+      <name>quast</name>
+      <owner>iuc</owner>
+      <url>https://toolshed.g2.bx.psu.edu</url>
+      <revision>f30d03867854</revision>
+    </repository>
+    <repository>
+      <name>abricate</name>
+      <owner>iuc</owner>
+      <url>https://toolshed.g2.bx.psu.edu</url>
+      <revision>f9bf6a8d8547</revision>
+    </repository>
+    <repository>
+      <name>screen_abricate_report</name>
+      <owner>dfornika</owner>
+      <url>https://testtoolshed.g2.bx.psu.edu</url>
+      <revision>378696e5f81c</revision>
+    </repository>
+    <repository>
+      <name>data_manager_manual</name>
+      <owner>iuc</owner>
+      <url>https://toolshed.g2.bx.psu.edu</url>
+      <revision>1c1e228884d3</revision>
+    </repository>
+  </toolRepositories>
 </iridaWorkflow>

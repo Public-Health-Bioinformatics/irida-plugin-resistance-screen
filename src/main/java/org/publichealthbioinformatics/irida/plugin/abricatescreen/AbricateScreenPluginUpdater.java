@@ -4,9 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Path;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 import com.google.common.collect.ImmutableMap;
 
@@ -39,7 +37,7 @@ public class AbricateScreenPluginUpdater implements AnalysisSampleUpdater {
 	private final IridaWorkflowsService iridaWorkflowsService;
 
 	/**
-	 * Builds a new {@link ExamplePluginUpdater} with the given services.
+	 * Builds a new {@link AbricateScreenPluginUpdater} with the given services.
 	 * 
 	 * @param metadataTemplateService The metadata template service.
 	 * @param sampleService           The sample service.
@@ -79,11 +77,8 @@ public class AbricateScreenPluginUpdater implements AnalysisSampleUpdater {
 		final Sample sample = samples.iterator().next();
 
 		// extracts paths to the analysis result files
-		AnalysisOutputFile hashAnalysisFile = analysis.getAnalysis().getAnalysisOutputFile("hash.txt");
-		Path hashFile = hashAnalysisFile.getFile();
-
-		AnalysisOutputFile readCountAnalysisFile = analysis.getAnalysis().getAnalysisOutputFile("read-count.txt");
-		Path readCountFile = readCountAnalysisFile.getFile();
+		AnalysisOutputFile geneDetectionStatusAnalysisOutputFile = analysis.getAnalysis().getAnalysisOutputFile("gene_detection_status");
+		Path geneDetectionStatusFilePath = geneDetectionStatusAnalysisOutputFile.getFile();
 
 		try {
 			Map<String, MetadataEntry> metadataEntries = new HashMap<>();
@@ -93,32 +88,21 @@ public class AbricateScreenPluginUpdater implements AnalysisSampleUpdater {
 			String workflowVersion = iridaWorkflow.getWorkflowDescription().getVersion();
 			String workflowName = iridaWorkflow.getWorkflowDescription().getName();
 
-			// gets information from the "hash.txt" output file and constructs metadata
+			// gets information from the "gene_detection_status.tsv" output file and constructs metadata
 			// objects
-			Map<String, String> hashValues = parseHashFile(hashFile);
-			for (String hashType : hashValues.keySet()) {
-				final String hashValue = hashValues.get(hashType);
+			List<Map<String, String>> geneDetectionStatuses = parseGeneDetectionStatusFile(geneDetectionStatusFilePath);
 
-				PipelineProvidedMetadataEntry hashEntry = new PipelineProvidedMetadataEntry(hashValue, "text",
-						analysis);
+			for (Map<String, String> geneDetectionStatus : geneDetectionStatuses) {
+				String geneName = geneDetectionStatus.get("gene_name");
+				String geneDetected = geneDetectionStatus.get("detected");
+				PipelineProvidedMetadataEntry geneDetectedEntry = new PipelineProvidedMetadataEntry(geneDetected, "boolean", analysis);
 
-				// key will be string like 'ReadInfo/md5 (v0.1.0)'
-				String key = workflowName + "/" + hashType + " (v" + workflowVersion + ")";
-				metadataEntries.put(key, hashEntry);
+				// key will be string like 'abricate-screen/KPC/detected'
+				String key = workflowName + "/" + geneName + "/" + "detected";
+				metadataEntries.put(key, geneDetectedEntry);
 			}
 
-			// gets read count information from "read-count.txt" file and builds metadata
-			// objects
-			Long readCount = parseReadCount(readCountFile);
-			PipelineProvidedMetadataEntry readCountEntry = new PipelineProvidedMetadataEntry(readCount.toString(),
-					"text", analysis);
-
-			// key will be string like 'ReadInfo/readCount (v0.1.0)'
-			String key = workflowName + "/readCount (v" + workflowVersion + ")";
-			metadataEntries.put(key, readCountEntry);
-
-			Map<MetadataTemplateField, MetadataEntry> metadataMap = metadataTemplateService
-					.getMetadataMap(metadataEntries);
+			Map<MetadataTemplateField, MetadataEntry> metadataMap = metadataTemplateService.getMetadataMap(metadataEntries);
 
 			// merges with existing sample metadata
 			sample.mergeMetadata(metadataMap);
@@ -126,92 +110,54 @@ public class AbricateScreenPluginUpdater implements AnalysisSampleUpdater {
 			// does an update of the sample metadata
 			sampleService.updateFields(sample.getId(), ImmutableMap.of("metadata", sample.getMetadata()));
 		} catch (IOException e) {
-			throw new PostProcessingException("Error parsing hash file", e);
+			throw new PostProcessingException("Error parsing gene detection status file", e);
 		} catch (IridaWorkflowNotFoundException e) {
 			throw new PostProcessingException("Could not find workflow for id=" + analysis.getWorkflowId(), e);
 		}
 	}
 
-	/**
-	 * Parses out the read count from the passed file.
-	 * 
-	 * @param readCountFile The file containing the read count. The file contents
-	 *                      should look like (representing 10 reads):
-	 * 
-	 *                      <pre>
-	 *                      10
-	 *                      </pre>
-	 * 
-	 * @return A {@link Long} containing the read count.
-	 * @throws IOException If there was an error reading the file.
-	 */
-	private Long parseReadCount(Path readCountFile) throws IOException {
-		BufferedReader readCountReader = new BufferedReader(new FileReader(readCountFile.toFile()));
-		Long readCount = null;
-
-		try {
-			String line = readCountReader.readLine();
-			readCount = Long.parseLong(line);
-		} finally {
-			readCountReader.close();
-		}
-
-		return readCount;
-	}
 
 	/**
-	 * Parses out values from the hash file into a {@link Map} linking 'hashType' to
-	 * 'hashValue'.
+	 * Parses out values from the hash file into a {@link List<Map>} linking 'gene_name' to 'detection_status'.
 	 * 
-	 * @param hashFile The {@link Path} to the file containing the hash values from
+	 * @param geneDetectionStatusFilePath The {@link Path} to the file containing the hash values from
 	 *                 the pipeline. This file should contain contents like:
 	 * 
 	 *                 <pre>
-	 * #md5                                sha1
-	 * d54d78010cf8eeaa76c46646846be4f2    5908a485e47f870d3f9d72ff1e55796512047f00
+	 * gene_name	detected
+	 * KPC	True
+	 * OXA	False
 	 *                 </pre>
 	 * 
-	 * @return A {@link Map} linking 'hashType' to 'hashValue'.
+	 * @return An {@link List<Map>} linking 'geneName' to 'detectionStatus'.
 	 * @throws IOException             If there was an error reading the file.
 	 * @throws PostProcessingException If there was an error parsing the file.
 	 */
-	private Map<String, String> parseHashFile(Path hashFile) throws IOException, PostProcessingException {
-		Map<String, String> hashTypeValues = new HashMap<>();
+	private List<Map<String, String>> parseGeneDetectionStatusFile(Path geneDetectionStatusFilePath) throws IOException, PostProcessingException {
+		List<Map<String, String>> geneDetectionStatuses = new ArrayList<Map<String, String>>();
 
-		BufferedReader hashReader = new BufferedReader(new FileReader(hashFile.toFile()));
+		BufferedReader geneDetectionStatusReader = new BufferedReader(new FileReader(geneDetectionStatusFilePath.toFile()));
 
 		try {
-			String headerLine = hashReader.readLine();
+			String headerLine = geneDetectionStatusReader.readLine();
 
-			if (!headerLine.startsWith("#")) {
-				throw new PostProcessingException("Missing '#' in header of file " + hashFile);
-			} else {
-				// strip off '#' prefix
-				headerLine = headerLine.substring(1);
+			String[] fieldNames = headerLine.split("\t");
+			String geneDetectionStatusLine;
+			Map<String, String> geneDetectionStatus = new HashMap<>();
+			while (( geneDetectionStatusLine = geneDetectionStatusReader.readLine()) != null) {
+				String[] geneDetectionStatusEntries = geneDetectionStatusLine.split("\t");
+				for (int i = 0; i < fieldNames.length; i++) {
+					geneDetectionStatus.put(fieldNames[i], geneDetectionStatusEntries[i]);
+				}
+				geneDetectionStatuses.add(geneDetectionStatus);
 			}
 
-			String[] hashTypes = headerLine.split("\t");
-
-			String hashValuesLine = hashReader.readLine();
-			String[] hashValues = hashValuesLine.split("\t");
-
-			if (hashTypes.length != hashValues.length) {
-				throw new PostProcessingException("Unmatched fields in header and values from file " + hashFile);
-			}
-
-			for (int i = 0; i < hashTypes.length; i++) {
-				hashTypeValues.put(hashTypes[i], hashValues[i]);
-			}
-
-			if (hashReader.readLine() != null) {
-				throw new PostProcessingException("Too many lines in file " + hashFile);
-			}
 		} finally {
 			// make sure to close, even in cases where an exception is thrown
-			hashReader.close();
+			geneDetectionStatusReader.close();
 		}
 
-		return hashTypeValues;
+		return geneDetectionStatuses;
 	}
 
 	/**
