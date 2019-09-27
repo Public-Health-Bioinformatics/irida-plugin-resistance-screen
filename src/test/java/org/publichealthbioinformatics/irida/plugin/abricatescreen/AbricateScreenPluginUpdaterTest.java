@@ -3,6 +3,8 @@ package org.publichealthbioinformatics.irida.plugin.abricatescreen;
 import org.junit.*;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.hamcrest.collection.IsMapContaining;
+
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -48,5 +50,6 @@ public class AbricateScreenPluginUpdaterTest {
                 System.out.println(geneDetectionStatus.get(key));
             }
         }
+
     }
 }
