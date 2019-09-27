@@ -144,14 +144,15 @@ public class AbricateScreenPluginUpdater implements AnalysisSampleUpdater {
 			String headerLine = geneDetectionStatusReader.readLine();
 
 			String[] fieldNames = headerLine.split("\t");
+			HashMap<String, String> geneDetectionStatus = new HashMap<>();
 			String geneDetectionStatusLine;
-			Map<String, String> geneDetectionStatus = new HashMap<>();
 			while (( geneDetectionStatusLine = geneDetectionStatusReader.readLine()) != null) {
 				String[] geneDetectionStatusEntries = geneDetectionStatusLine.split("\t");
 				for (int i = 0; i < fieldNames.length; i++) {
 					geneDetectionStatus.put(fieldNames[i], geneDetectionStatusEntries[i]);
 				}
-				geneDetectionStatuses.add(geneDetectionStatus);
+				HashMap<String, String> clonedGeneDetectionStatus = (HashMap<String, String>) geneDetectionStatus.clone();
+				geneDetectionStatuses.add(clonedGeneDetectionStatus);
 			}
 
 		} finally {
