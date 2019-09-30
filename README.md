@@ -1,5 +1,7 @@
 # IRIDA Abricate-Screen Pipeline Plugin
 
+[![Build Status](https://travis-ci.org/dfornika/irida-plugin-abricate-screen.svg?branch=master)](https://travis-ci.org/dfornika/irida-plugin-abricate-screen)
+
 # Table of Contents
 
    * [IRIDA Abricate-Screen Pipeline Plugin](#irida-abricate-screen-pipeline-plugin)
