@@ -11,6 +11,10 @@ jdk:
  - oraclejdk8
  - openjdk8
 
+cache:
+  directories:
+    - $HOME/.m2
+
 before_install:
   - git clone https://github.com/phac-nml/irida.git
   - pushd irida/lib; ./install-libs.sh; popd
