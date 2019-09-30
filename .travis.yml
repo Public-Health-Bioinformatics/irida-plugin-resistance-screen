@@ -11,6 +11,10 @@ jdk:
  - oraclejdk8
  - openjdk8
 
+before_install:
+  - git clone https://github.com/phac-nml/irida.git
+  - pushd irida; git checkout 19.01.3; mvn clean install -DskipTests; popd
+
 # Each job in Travis CI has several steps:
 # https://docs.travis-ci.com/user/job-lifecycle/
 # The 'language: java' directive sets up sane defaults to test common java applications
