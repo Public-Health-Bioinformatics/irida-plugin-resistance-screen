@@ -16,9 +16,12 @@ cache:
     - $HOME/.m2
 
 before_install:
+  - pushd ..
   - git clone https://github.com/phac-nml/irida.git
-  - pushd irida/lib; ./install-libs.sh; popd
-  - pushd irida; git checkout 19.01.3; mvn clean install -DskipTests; popd
+  - pushd irida; git checkout -b 19.01.3 19.01.3;
+  - pushd lib; ./install-libs.sh; popd
+  - mvn clean install -DskipTests; popd
+  - popd
 
 # Each job in Travis CI has several steps:
 # https://docs.travis-ci.com/user/job-lifecycle/
