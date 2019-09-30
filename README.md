@@ -1,10 +1,8 @@
-# IRIDA Example Pipeline Plugin
-
-This project contains an example pipeline implemented as a plugin for the [IRIDA][] bioinformatics analysis system. This can be used as a template for implementing your own pipelines within IRIDA. Please see the pipeline documentation at <https://irida.corefacility.ca/documentation/developer/tools/pipelines/> for more details.
+# IRIDA Abricate-Screen Pipeline Plugin
 
 # Table of Contents
 
-   * [IRIDA Example Pipeline Plugin](#irida-example-pipeline-plugin)
+   * [IRIDA Abricate-Screen Pipeline Plugin](#irida-abricate-screen-pipeline-plugin)
    * [Building/Packaging](#buildingpackaging)
       * [Installing IRIDA to local Maven repository](#installing-irida-to-local-maven-repository)
       * [Building the plugin](#building-the-plugin)
