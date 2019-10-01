@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/dfornika/irida-plugin-abricate-screen.svg?branch=master)](https://travis-ci.org/dfornika/irida-plugin-abricate-screen)
 [![codecov](https://codecov.io/gh/dfornika/irida-plugin-abricate-screen/branch/master/graph/badge.svg)](https://codecov.io/gh/dfornika/irida-plugin-abricate-screen)
+[![Current Release Version](https://img.shields.io/github/release/dfornika/irida-plugin-abricate-screen.svg)](https://github.com/explosion/spacy-lookups-data/releases)
 
 # Table of Contents
 
