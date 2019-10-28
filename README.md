@@ -1,12 +1,12 @@
-# IRIDA Abricate-Screen Pipeline Plugin
+# IRIDA Resistance-Screen Pipeline Plugin
 
-[![Build Status](https://travis-ci.org/dfornika/irida-plugin-abricate-screen.svg?branch=master)](https://travis-ci.org/dfornika/irida-plugin-abricate-screen)
-[![codecov](https://codecov.io/gh/dfornika/irida-plugin-abricate-screen/branch/master/graph/badge.svg)](https://codecov.io/gh/dfornika/irida-plugin-abricate-screen)
-[![Current Release Version](https://img.shields.io/github/release/dfornika/irida-plugin-abricate-screen.svg)](https://github.com/explosion/spacy-lookups-data/releases)
+[![Build Status](https://travis-ci.org/dfornika/irida-plugin-resistance-screen.svg?branch=master)](https://travis-ci.org/dfornika/irida-plugin-resistance-screen)
+[![codecov](https://codecov.io/gh/dfornika/irida-plugin-resistance-screen/branch/master/graph/badge.svg)](https://codecov.io/gh/dfornika/irida-plugin-resistance-screen)
+[![Current Release Version](https://img.shields.io/github/release/dfornika/irida-plugin-resistance-screen.svg)](https://github.com/dfornika/irida-plugin-resistance-screen/releases)
 
 # Table of Contents
 
-   * [IRIDA Abricate-Screen Pipeline Plugin](#irida-abricate-screen-pipeline-plugin)
+   * [IRIDA Resistance-Screen Pipeline Plugin](#irida-resistance-screen-pipeline-plugin)
    * [Building/Packaging](#buildingpackaging)
       * [Installing IRIDA to local Maven repository](#installing-irida-to-local-maven-repository)
       * [Building the plugin](#building-the-plugin)
