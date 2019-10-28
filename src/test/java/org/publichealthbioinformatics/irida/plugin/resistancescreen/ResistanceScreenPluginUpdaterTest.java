@@ -1,4 +1,4 @@
-package org.publichealthbioinformatics.irida.plugin.abricatescreen;
+package org.publichealthbioinformatics.irida.plugin.resistancescreen;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -31,11 +31,11 @@ import ca.corefacility.bioinformatics.irida.service.sample.MetadataTemplateServi
 import ca.corefacility.bioinformatics.irida.service.workflow.IridaWorkflowsService;
 
 
-public class AbricateScreenPluginUpdaterTest {
+public class ResistanceScreenPluginUpdaterTest {
     private String WORKFLOW_NAME = "abricate-screen";
     private String WORKFLOW_VERSION = "0.1.0";
 
-    private AbricateScreenPluginUpdater updater;
+    private ResistanceScreenPluginUpdater updater;
 
     private SampleService sampleService;
     private MetadataTemplateService metadataTemplateService;
@@ -53,7 +53,7 @@ public class AbricateScreenPluginUpdaterTest {
         iridaWorkflow = mock(IridaWorkflow.class);
         iridaWorkflowDescription = mock(IridaWorkflowDescription.class);
 
-        updater = new AbricateScreenPluginUpdater(metadataTemplateService, sampleService, iridaWorkflowsService);
+        updater = new ResistanceScreenPluginUpdater(metadataTemplateService, sampleService, iridaWorkflowsService);
 
         when(iridaWorkflowsService.getIridaWorkflow(uuid)).thenReturn(iridaWorkflow);
         when(iridaWorkflow.getWorkflowDescription()).thenReturn(iridaWorkflowDescription);

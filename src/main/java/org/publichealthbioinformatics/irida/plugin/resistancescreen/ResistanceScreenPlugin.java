@@ -1,4 +1,4 @@
-package org.publichealthbioinformatics.irida.plugin.abricatescreen;
+package org.publichealthbioinformatics.irida.plugin.resistancescreen;
 
 import java.awt.Color;
 import java.util.Optional;
@@ -21,16 +21,16 @@ import ca.corefacility.bioinformatics.irida.service.workflow.IridaWorkflowsServi
  * An example {@link IridaPlugin} implementation which will extract some
  * information from the sequencing reads.
  */
-public class AbricateScreenPlugin extends Plugin {
+public class ResistanceScreenPlugin extends Plugin {
 
 	/**
 	 * The {@link AnalysisType} used by this plugin. This wraps around a string and
 	 * is used to store the type of the analysis pipeline (which should be unique
 	 * for each pipeline).
 	 */
-	public static final AnalysisType ABRICATE_SCREEN = new AnalysisType("ABRICATE_SCREEN");
+	public static final AnalysisType RESISTANCE_SCREEN = new AnalysisType("RESISTANCE_SCREEN");
 
-	public AbricateScreenPlugin(PluginWrapper wrapper) {
+	public ResistanceScreenPlugin(PluginWrapper wrapper) {
 		super(wrapper);
 	}
 
@@ -62,7 +62,7 @@ public class AbricateScreenPlugin extends Plugin {
 		 */
 		@Override
 		public AnalysisType getAnalysisType() {
-			return ABRICATE_SCREEN;
+			return RESISTANCE_SCREEN;
 		}
 
 		/**
@@ -126,7 +126,7 @@ public class AbricateScreenPlugin extends Plugin {
 		@Override
 		public Optional<AnalysisSampleUpdater> getUpdater(MetadataTemplateService metadataTemplateService,
 				SampleService sampleService, IridaWorkflowsService iridaWorkflowsService) throws IridaPluginException {
-			return Optional.of(new AbricateScreenPluginUpdater(metadataTemplateService, sampleService, iridaWorkflowsService));
+			return Optional.of(new ResistanceScreenPluginUpdater(metadataTemplateService, sampleService, iridaWorkflowsService));
 		}
 	}
 }

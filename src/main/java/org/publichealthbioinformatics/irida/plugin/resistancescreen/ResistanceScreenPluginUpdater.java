@@ -1,4 +1,4 @@
-package org.publichealthbioinformatics.irida.plugin.abricatescreen;
+package org.publichealthbioinformatics.irida.plugin.resistancescreen;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -31,21 +31,21 @@ import ca.corefacility.bioinformatics.irida.service.workflow.IridaWorkflowsServi
  * <https://github.com/phac-nml/irida/blob/development/src/main/java/ca/corefacility/bioinformatics/irida/pipeline/results/AnalysisSampleUpdater.java>
  * or the README.md file in this project for more details.
  */
-public class AbricateScreenPluginUpdater implements AnalysisSampleUpdater {
+public class ResistanceScreenPluginUpdater implements AnalysisSampleUpdater {
 
 	private final MetadataTemplateService metadataTemplateService;
 	private final SampleService sampleService;
 	private final IridaWorkflowsService iridaWorkflowsService;
 
 	/**
-	 * Builds a new {@link AbricateScreenPluginUpdater} with the given services.
+	 * Builds a new {@link ResistanceScreenPluginUpdater} with the given services.
 	 * 
 	 * @param metadataTemplateService The metadata template service.
 	 * @param sampleService           The sample service.
 	 * @param iridaWorkflowsService   The irida workflows service.
 	 */
-	public AbricateScreenPluginUpdater(MetadataTemplateService metadataTemplateService, SampleService sampleService,
-			IridaWorkflowsService iridaWorkflowsService) {
+	public ResistanceScreenPluginUpdater(MetadataTemplateService metadataTemplateService, SampleService sampleService,
+										 IridaWorkflowsService iridaWorkflowsService) {
 		this.metadataTemplateService = metadataTemplateService;
 		this.sampleService = sampleService;
 		this.iridaWorkflowsService = iridaWorkflowsService;
@@ -171,6 +171,6 @@ public class AbricateScreenPluginUpdater implements AnalysisSampleUpdater {
 	 */
 	@Override
 	public AnalysisType getAnalysisType() {
-		return AbricateScreenPlugin.ABRICATE_SCREEN;
+		return ResistanceScreenPlugin.RESISTANCE_SCREEN;
 	}
 }

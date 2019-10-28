@@ -5,14 +5,14 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>org.publichealthbioinformatics</groupId>
-	<artifactId>irida-plugin-abricate-screen</artifactId>
+	<artifactId>irida-plugin-resistance-screen</artifactId>
 	<version>0.1.0-SNAPSHOT</version>
 
 	<!-- Please fill out these properties with information about your particular plugin -->
 	<properties>
 		<!-- Information used to define properties about a plugin. Please see the PF4J docs for more details https://pf4j.org/doc/getting-started.html -->
-		<plugin.id>abricate-screen</plugin.id>
-		<plugin.class>org.publichealthbioinformatics.irida.plugin.abricatescreen.AbricateScreenPlugin</plugin.class>
+		<plugin.id>resistance-screen</plugin.id>
+		<plugin.class>org.publichealthbioinformatics.irida.plugin.resistancescreen.ResistanceScreenPlugin</plugin.class>
 		<plugin.version>0.1.0</plugin.version>
 		<plugin.provider>Dan Fornika</plugin.provider>
 		<plugin.dependencies></plugin.dependencies>

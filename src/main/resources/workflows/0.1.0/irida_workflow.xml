@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <iridaWorkflow>
   <id>3b697fef-2811-45cf-8634-b89f6cfdb7cb</id>
-  <name>abricate-screen</name>
+  <name>resistance-screen</name>
   <version>0.1.0</version>
-  <analysisType>ABRICATE_SCREEN</analysisType>
+  <analysisType>RESISTANCE_SCREEN</analysisType>
   <inputs>
     <sequenceReadsPaired>sequence_reads_paired</sequenceReadsPaired>
     <requiresSingleSample>true</requiresSingleSample>
