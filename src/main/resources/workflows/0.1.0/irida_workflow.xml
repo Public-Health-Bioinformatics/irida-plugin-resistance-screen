@@ -73,7 +73,7 @@
       <name>abricate</name>
       <owner>iuc</owner>
       <url>https://toolshed.g2.bx.psu.edu</url>
-      <revision>f9bf6a8d8547</revision>
+      <revision>1bb2ba6d3d96</revision>
     </repository>
     <repository>
       <name>screen_abricate_report</name>
