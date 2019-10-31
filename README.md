@@ -119,12 +119,12 @@ mvn clean install -DskipTests
 Once you've installed IRIDA as a dependency, you can proceed to building this plugin. Please run the following commands:
 
 ```bash
-cd irida-plugin-species-abundance
+cd irida-plugin-resistance-screen
 
 mvn clean package
 ```
 
-Once complete, you should end up with a file `target/irida-plugin-species-abundance-0.1.0.jar` which can be installed as a plugin to IRIDA.
+Once complete, you should end up with a file `target/irida-plugin-resistance-screen-0.1.0-SNAPSHOT.jar` which can be installed as a plugin to IRIDA.
 
 # Dependencies
 
