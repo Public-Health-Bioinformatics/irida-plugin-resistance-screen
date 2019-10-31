@@ -375,3 +375,4 @@ Once you've successfully built your plugin, you can distribute the JAR file to o
 [example-plugin-metadata.png]: doc/images/example-plugin-metadata.png
 [pipeline-parameters.png]: doc/images/pipeline-parameters.png
 [example-plugin-save-results.png]: doc/images/example-plugin-save-results.png
+[galaxy-workflow-diagram.png]: doc/images/galaxy-workflow-diagram.png
