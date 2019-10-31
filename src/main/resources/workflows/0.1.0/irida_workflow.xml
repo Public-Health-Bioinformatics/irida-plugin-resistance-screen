@@ -67,19 +67,19 @@
       <name>quast</name>
       <owner>iuc</owner>
       <url>https://toolshed.g2.bx.psu.edu</url>
-      <revision>f30d03867854</revision>
+      <revision>59db8ea8c845</revision>
     </repository>
     <repository>
       <name>abricate</name>
       <owner>iuc</owner>
       <url>https://toolshed.g2.bx.psu.edu</url>
-      <revision>1bb2ba6d3d96</revision>
+      <revision>4efdca267d51</revision>
     </repository>
     <repository>
       <name>screen_abricate_report</name>
-      <owner>dfornika</owner>
+      <owner>public-health-bioinformatics</owner>
       <url>https://testtoolshed.g2.bx.psu.edu</url>
-      <revision>378696e5f81c</revision>
+      <revision>2c6153023368</revision>
     </repository>
     <repository>
       <name>data_manager_manual</name>

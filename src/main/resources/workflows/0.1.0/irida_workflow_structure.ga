@@ -1,9 +1,9 @@
 {
-    "uuid": "3939d4bb-7ecf-4122-b093-2839d8a31657",
+    "uuid": "12d20231-1f56-4cd7-9f38-0fb0663dc6c3",
     "tags": [],
     "format-version": "0.1",
-    "name": "abricate-screen",
-    "version": 3,
+    "name": "resistance-screen",
+    "version": 1,
     "steps": {
         "0": {
             "tool_id": null,
@@ -54,6 +54,11 @@
                     "output_name": "contigs",
                     "uuid": "0c883797-22bf-4bf3-be43-c9479e365194",
                     "label": null
+                },
+                {
+                    "output_name": "shovill_std_log",
+                    "uuid": "ba5bea02-58dd-469b-a212-7057204f8f0f",
+                    "label": null
                 }
             ],
             "input_connections": {
@@ -62,7 +67,7 @@
                     "id": 0
                 }
             },
-            "tool_state": "{\"adv\": \"{\\\"depth\\\": \\\"100\\\", \\\"gsize\\\": \\\"\\\", \\\"kmers\\\": \\\"\\\", \\\"mincov\\\": \\\"2\\\", \\\"minlen\\\": \\\"0\\\", \\\"namefmt\\\": \\\"contig%05d\\\", \\\"nocorr\\\": \\\"true\\\", \\\"opts\\\": \\\"\\\"}\", \"trim\": \"\\\"false\\\"\", \"log\": \"\\\"true\\\"\", \"__page__\": null, \"__rerun_remap_job_id__\": null, \"assembler\": \"\\\"spades\\\"\", \"library\": \"{\\\"__current_case__\\\": 1, \\\"input1\\\": {\\\"__class__\\\": \\\"ConnectedValue\\\"}, \\\"lib_type\\\": \\\"collection\\\"}\"}",
+            "tool_state": "{\"adv\": \"{\\\"depth\\\": \\\"100\\\", \\\"gsize\\\": \\\"\\\", \\\"kmers\\\": \\\"\\\", \\\"mincov\\\": \\\"2\\\", \\\"minlen\\\": \\\"0\\\", \\\"namefmt\\\": \\\"contig%05d\\\", \\\"nocorr\\\": \\\"true\\\", \\\"opts\\\": \\\"\\\"}\", \"trim\": \"\\\"false\\\"\", \"log\": \"\\\"true\\\"\", \"__page__\": null, \"__rerun_remap_job_id__\": null, \"assembler\": \"\\\"spades\\\"\", \"library\": \"{\\\"__current_case__\\\": 1, \\\"input1\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"lib_type\\\": \\\"collection\\\"}\"}",
             "id": 1,
             "tool_shed_repository": {
                 "owner": "iuc",
@@ -74,15 +79,17 @@
             "errors": null,
             "name": "Shovill",
             "post_job_actions": {
-                "HideDatasetActionshovill_std_log": {
-                    "output_name": "shovill_std_log",
-                    "action_type": "HideDatasetAction",
-                    "action_arguments": {}
-                },
                 "HideDatasetActioncontigs_graph": {
                     "output_name": "contigs_graph",
                     "action_type": "HideDatasetAction",
                     "action_arguments": {}
+                },
+                "RenameDatasetActionshovill_std_log": {
+                    "output_name": "shovill_std_log",
+                    "action_type": "RenameDatasetAction",
+                    "action_arguments": {
+                        "newname": "assembly_log.txt"
+                    }
                 },
                 "RenameDatasetActioncontigs": {
                     "output_name": "contigs",
@@ -93,7 +100,12 @@
                 }
             },
             "label": null,
-            "inputs": [],
+            "inputs": [
+                {
+                    "name": "library",
+                    "description": "runtime parameter for tool Shovill"
+                }
+            ],
             "position": {
                 "top": 200,
                 "left": 442.5
@@ -103,8 +115,8 @@
             "type": "tool"
         },
         "2": {
-            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/abricate/abricate/0.9.7",
-            "tool_version": "0.9.7",
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/abricate/abricate/0.9.8",
+            "tool_version": "0.9.8",
             "outputs": [
                 {
                     "type": "tabular",
@@ -128,7 +140,7 @@
             "id": 2,
             "tool_shed_repository": {
                 "owner": "iuc",
-                "changeset_revision": "1bb2ba6d3d96",
+                "changeset_revision": "4efdca267d51",
                 "name": "abricate",
                 "tool_shed": "toolshed.g2.bx.psu.edu"
             },
@@ -151,7 +163,7 @@
                 "left": 770.5
             },
             "annotation": "",
-            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/abricate/abricate/0.9.7",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/abricate/abricate/0.9.8",
             "type": "tool"
         },
         "3": {
@@ -212,6 +224,11 @@
             "errors": null,
             "name": "Quast",
             "post_job_actions": {
+                "HideDatasetActionreport_html": {
+                    "output_name": "report_html",
+                    "action_type": "HideDatasetAction",
+                    "action_arguments": {}
+                },
                 "HideDatasetActionlog": {
                     "output_name": "log",
                     "action_type": "HideDatasetAction",
@@ -241,11 +258,6 @@
                 },
                 "HideDatasetActionreport_pdf": {
                     "output_name": "report_pdf",
-                    "action_type": "HideDatasetAction",
-                    "action_arguments": {}
-                },
-                "HideDatasetActionreport_html": {
-                    "output_name": "report_html",
                     "action_type": "HideDatasetAction",
                     "action_arguments": {}
                 }
@@ -291,11 +303,11 @@
                     "id": 2
                 }
             },
-            "tool_state": "{\"__page__\": null, \"__rerun_remap_job_id__\": null, \"abricate_report\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"screening_file\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\"}",
+            "tool_state": "{\"__page__\": null, \"__rerun_remap_job_id__\": null, \"abricate_report\": \"{\\\"__class__\\\": \\\"ConnectedValue\\\"}\", \"screening_file\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\"}",
             "id": 4,
             "tool_shed_repository": {
                 "owner": "dfornika",
-                "changeset_revision": "2ffd23634c1e",
+                "changeset_revision": "378696e5f81c",
                 "name": "screen_abricate_report",
                 "tool_shed": "testtoolshed.g2.bx.psu.edu"
             },
@@ -320,10 +332,6 @@
             },
             "label": null,
             "inputs": [
-                {
-                    "name": "abricate_report",
-                    "description": "runtime parameter for tool Screen Abricate Report"
-                },
                 {
                     "name": "screening_file",
                     "description": "runtime parameter for tool Screen Abricate Report"

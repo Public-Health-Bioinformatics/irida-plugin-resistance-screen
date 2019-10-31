@@ -1,8 +1,10 @@
-# IRIDA Resistance-Screen Pipeline Plugin
-
 [![Build Status](https://travis-ci.org/dfornika/irida-plugin-resistance-screen.svg?branch=master)](https://travis-ci.org/dfornika/irida-plugin-resistance-screen)
 [![codecov](https://codecov.io/gh/dfornika/irida-plugin-resistance-screen/branch/master/graph/badge.svg)](https://codecov.io/gh/dfornika/irida-plugin-resistance-screen)
 [![Current Release Version](https://img.shields.io/github/release/dfornika/irida-plugin-resistance-screen.svg)](https://github.com/dfornika/irida-plugin-resistance-screen/releases)
+
+# IRIDA Resistance-Screen Pipeline Plugin
+
+![galaxy-workflow-diagram.png][]
 
 # Table of Contents
 
