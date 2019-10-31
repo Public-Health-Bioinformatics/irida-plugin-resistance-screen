@@ -1,9 +1,9 @@
 {
-    "uuid": "12d20231-1f56-4cd7-9f38-0fb0663dc6c3",
+    "uuid": "4bd94bec-d153-4ef4-9de9-7cc7dab52d58",
     "tags": [],
     "format-version": "0.1",
     "name": "resistance-screen",
-    "version": 1,
+    "version": 5,
     "steps": {
         "0": {
             "tool_id": null,
@@ -25,8 +25,8 @@
             "label": "sequence_reads_paired",
             "inputs": [],
             "position": {
-                "top": 300,
-                "left": 161
+                "top": 116,
+                "left": 258
             },
             "annotation": "",
             "content_id": null,
@@ -67,7 +67,7 @@
                     "id": 0
                 }
             },
-            "tool_state": "{\"adv\": \"{\\\"depth\\\": \\\"100\\\", \\\"gsize\\\": \\\"\\\", \\\"kmers\\\": \\\"\\\", \\\"mincov\\\": \\\"2\\\", \\\"minlen\\\": \\\"0\\\", \\\"namefmt\\\": \\\"contig%05d\\\", \\\"nocorr\\\": \\\"true\\\", \\\"opts\\\": \\\"\\\"}\", \"trim\": \"\\\"false\\\"\", \"log\": \"\\\"true\\\"\", \"__page__\": null, \"__rerun_remap_job_id__\": null, \"assembler\": \"\\\"spades\\\"\", \"library\": \"{\\\"__current_case__\\\": 1, \\\"input1\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"lib_type\\\": \\\"collection\\\"}\"}",
+            "tool_state": "{\"adv\": \"{\\\"depth\\\": \\\"100\\\", \\\"gsize\\\": \\\"\\\", \\\"kmers\\\": \\\"\\\", \\\"mincov\\\": \\\"2\\\", \\\"minlen\\\": \\\"0\\\", \\\"namefmt\\\": \\\"contig%05d\\\", \\\"nocorr\\\": \\\"true\\\", \\\"opts\\\": \\\"\\\"}\", \"trim\": \"\\\"true\\\"\", \"log\": \"\\\"true\\\"\", \"__page__\": null, \"__rerun_remap_job_id__\": null, \"assembler\": \"\\\"spades\\\"\", \"library\": \"{\\\"__current_case__\\\": 1, \\\"input1\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"lib_type\\\": \\\"collection\\\"}\"}",
             "id": 1,
             "tool_shed_repository": {
                 "owner": "iuc",
@@ -107,8 +107,8 @@
                 }
             ],
             "position": {
-                "top": 200,
-                "left": 442.5
+                "top": 209,
+                "left": 261.5
             },
             "annotation": "",
             "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/shovill/shovill/1.0.4",
@@ -159,20 +159,32 @@
             "label": null,
             "inputs": [],
             "position": {
-                "top": 226,
-                "left": 770.5
+                "top": 213,
+                "left": 557.5
             },
             "annotation": "",
             "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/abricate/abricate/0.9.8",
             "type": "tool"
         },
         "3": {
-            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/quast/quast/5.0.2+galaxy0",
-            "tool_version": "5.0.2+galaxy0",
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/quast/quast/5.0.2",
+            "tool_version": "5.0.2",
             "outputs": [
                 {
+                    "type": "txt",
+                    "name": "log_txt"
+                },
+                {
                     "type": "tabular",
-                    "name": "quast_tabular"
+                    "name": "mis_ass_tsv"
+                },
+                {
+                    "type": "tabular",
+                    "name": "unalign_tsv"
+                },
+                {
+                    "type": "tabular",
+                    "name": "quast_tsv"
                 },
                 {
                     "type": "html",
@@ -181,99 +193,95 @@
                 {
                     "type": "pdf",
                     "name": "report_pdf"
-                },
-                {
-                    "type": "txt",
-                    "name": "log"
-                },
-                {
-                    "type": "tabular",
-                    "name": "mis_ass"
-                },
-                {
-                    "type": "tabular",
-                    "name": "unalign"
-                },
-                {
-                    "type": "tabular",
-                    "name": "kmers"
                 }
             ],
             "workflow_outputs": [
                 {
-                    "output_name": "quast_tabular",
-                    "uuid": "5eb5a772-727d-4c91-b999-59e8782cf9b3",
+                    "output_name": "quast_tsv",
+                    "uuid": "21f0c240-0182-415d-81cf-fe9b5363099a",
                     "label": null
                 }
             ],
             "input_connections": {
-                "in|inputs": {
+                "input": {
                     "output_name": "contigs",
                     "id": 1
                 }
             },
-            "tool_state": "{\"scaffold_gap_max_size\": \"\\\"1000\\\"\", \"skip_unaligned_mis_contigs\": \"\\\"true\\\"\", \"assembly\": \"{\\\"__current_case__\\\": 0, \\\"orga_type\\\": \\\"\\\", \\\"ref\\\": {\\\"__current_case__\\\": 1, \\\"est_ref_size\\\": \\\"\\\", \\\"use_ref\\\": \\\"false\\\"}, \\\"type\\\": \\\"genome\\\"}\", \"circos\": \"\\\"false\\\"\", \"contig_thresholds\": \"\\\"0,1000\\\"\", \"__page__\": null, \"strict_NA\": \"\\\"false\\\"\", \"__rerun_remap_job_id__\": null, \"genes\": \"{\\\"conserved_genes_finding\\\": \\\"false\\\", \\\"gene_finding\\\": {\\\"__current_case__\\\": 0, \\\"tool\\\": \\\"none\\\"}, \\\"rna_finding\\\": \\\"false\\\"}\", \"unaligned_part_size\": \"\\\"500\\\"\", \"al\": \"{\\\"ambiguity_score\\\": \\\"0.99\\\", \\\"ambiguity_usage\\\": \\\"one\\\", \\\"fragmented\\\": \\\"false\\\", \\\"fragmented_max_indent\\\": \\\"50\\\", \\\"min_alignment\\\": \\\"65\\\", \\\"min_identity\\\": \\\"95.0\\\", \\\"upper_bound_assembly\\\": \\\"false\\\", \\\"upper_bound_min_con\\\": \\\"2\\\", \\\"use_all_alignments\\\": \\\"false\\\"}\", \"extensive_mis_size\": \"\\\"1000\\\"\", \"large\": \"\\\"false\\\"\", \"in\": \"{\\\"__current_case__\\\": 1, \\\"custom\\\": \\\"false\\\", \\\"inputs\\\": {\\\"__class__\\\": \\\"ConnectedValue\\\"}}\", \"k_mer\": \"{\\\"__current_case__\\\": 1, \\\"k_mer_stats\\\": \\\"\\\"}\", \"split_scaffolds\": \"\\\"false\\\"\", \"min_contig\": \"\\\"500\\\"\"}",
+            "tool_state": "{\"input_operon\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__page__\": null, \"threshold_contig\": \"\\\"0,1000\\\"\", \"__rerun_remap_job_id__\": null, \"annot\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"large\": \"\\\"false\\\"\", \"type_file\": \"\\\"contig\\\"\", \"input\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"input_size\": \"\\\"\\\"\", \"input_ref\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"min_contig\": \"\\\"500\\\"\", \"gene_selection\": \"\\\"prokaryotes\\\"\"}",
             "id": 3,
             "tool_shed_repository": {
                 "owner": "iuc",
-                "changeset_revision": "f30d03867854",
+                "changeset_revision": "81df4950d65b",
                 "name": "quast",
                 "tool_shed": "toolshed.g2.bx.psu.edu"
             },
-            "uuid": "a79667ed-0665-4ea5-9457-466c2c655be4",
+            "uuid": "d2dc7676-58d2-4ef8-9dd9-ccae14edf758",
             "errors": null,
             "name": "Quast",
             "post_job_actions": {
-                "HideDatasetActionreport_html": {
-                    "output_name": "report_html",
+                "HideDatasetActionreport_pdf": {
+                    "output_name": "report_pdf",
                     "action_type": "HideDatasetAction",
                     "action_arguments": {}
                 },
-                "HideDatasetActionlog": {
-                    "output_name": "log",
+                "HideDatasetActionmis_ass_tsv": {
+                    "output_name": "mis_ass_tsv",
                     "action_type": "HideDatasetAction",
                     "action_arguments": {}
                 },
-                "HideDatasetActionkmers": {
-                    "output_name": "kmers",
-                    "action_type": "HideDatasetAction",
-                    "action_arguments": {}
-                },
-                "RenameDatasetActionquast_tabular": {
-                    "output_name": "quast_tabular",
+                "RenameDatasetActionquast_tsv": {
+                    "output_name": "quast_tsv",
                     "action_type": "RenameDatasetAction",
                     "action_arguments": {
                         "newname": "quast.tsv"
                     }
                 },
-                "HideDatasetActionunalign": {
-                    "output_name": "unalign",
+                "HideDatasetActionunalign_tsv": {
+                    "output_name": "unalign_tsv",
                     "action_type": "HideDatasetAction",
                     "action_arguments": {}
                 },
-                "HideDatasetActionmis_ass": {
-                    "output_name": "mis_ass",
+                "HideDatasetActionlog_txt": {
+                    "output_name": "log_txt",
                     "action_type": "HideDatasetAction",
                     "action_arguments": {}
                 },
-                "HideDatasetActionreport_pdf": {
-                    "output_name": "report_pdf",
+                "HideDatasetActionreport_html": {
+                    "output_name": "report_html",
                     "action_type": "HideDatasetAction",
                     "action_arguments": {}
                 }
             },
             "label": null,
-            "inputs": [],
+            "inputs": [
+                {
+                    "name": "input_operon",
+                    "description": "runtime parameter for tool Quast"
+                },
+                {
+                    "name": "annot",
+                    "description": "runtime parameter for tool Quast"
+                },
+                {
+                    "name": "input",
+                    "description": "runtime parameter for tool Quast"
+                },
+                {
+                    "name": "input_ref",
+                    "description": "runtime parameter for tool Quast"
+                }
+            ],
             "position": {
-                "top": 457,
-                "left": 765.5
+                "top": 370.5,
+                "left": 560.5
             },
             "annotation": "",
-            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/quast/quast/5.0.2+galaxy0",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/quast/quast/5.0.2",
             "type": "tool"
         },
         "4": {
-            "tool_id": "testtoolshed.g2.bx.psu.edu/repos/dfornika/screen_abricate_report/screen_abricate_report/0.1.0",
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/public-health-bioinformatics/screen_abricate_report/screen_abricate_report/0.1.0",
             "tool_version": "0.1.0",
             "outputs": [
                 {
@@ -288,12 +296,12 @@
             "workflow_outputs": [
                 {
                     "output_name": "gene_detection_status",
-                    "uuid": "09ad5be1-e4b3-46ec-a982-a3f92f1aa914",
+                    "uuid": "cd8ac0ac-0204-4e34-a0c7-db57e48a87bd",
                     "label": null
                 },
                 {
                     "output_name": "screened_report",
-                    "uuid": "19a0809e-68e2-43fd-977b-c0f6b25c5ea9",
+                    "uuid": "cc332d71-a8d1-4405-9c16-a5bd1998d935",
                     "label": null
                 }
             ],
@@ -303,15 +311,15 @@
                     "id": 2
                 }
             },
-            "tool_state": "{\"__page__\": null, \"__rerun_remap_job_id__\": null, \"abricate_report\": \"{\\\"__class__\\\": \\\"ConnectedValue\\\"}\", \"screening_file\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\"}",
+            "tool_state": "{\"__page__\": null, \"__rerun_remap_job_id__\": null, \"abricate_report\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"screening_file\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\"}",
             "id": 4,
             "tool_shed_repository": {
-                "owner": "dfornika",
-                "changeset_revision": "378696e5f81c",
+                "owner": "public-health-bioinformatics",
+                "changeset_revision": "b2d56a44a872",
                 "name": "screen_abricate_report",
-                "tool_shed": "testtoolshed.g2.bx.psu.edu"
+                "tool_shed": "toolshed.g2.bx.psu.edu"
             },
-            "uuid": "42a797da-70c1-4154-ae09-c5879b9a41f0",
+            "uuid": "93066c74-cee0-4184-90ff-9650e5b316f7",
             "errors": null,
             "name": "Screen Abricate Report",
             "post_job_actions": {
@@ -333,16 +341,20 @@
             "label": null,
             "inputs": [
                 {
+                    "name": "abricate_report",
+                    "description": "runtime parameter for tool Screen Abricate Report"
+                },
+                {
                     "name": "screening_file",
                     "description": "runtime parameter for tool Screen Abricate Report"
                 }
             ],
             "position": {
-                "top": 232.5,
-                "left": 1102
+                "top": 219.5,
+                "left": 848
             },
             "annotation": "",
-            "content_id": "testtoolshed.g2.bx.psu.edu/repos/dfornika/screen_abricate_report/screen_abricate_report/0.1.0",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/public-health-bioinformatics/screen_abricate_report/screen_abricate_report/0.1.0",
             "type": "tool"
         }
     },

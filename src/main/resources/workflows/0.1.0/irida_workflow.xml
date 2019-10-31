@@ -37,16 +37,16 @@
       <toolParameter toolId="toolshed.g2.bx.psu.edu/repos/iuc/shovill/shovill/1.0.4" parameterName="assembler" label="Assembler to use" type="select"/>
     </parameter>
     <parameter name="abricate-2-adv.db" defaultValue="card">
-      <toolParameter toolId="toolshed.g2.bx.psu.edu/repos/iuc/abricate/abricate/0.9.3" parameterName="adv.db"/>
+      <toolParameter toolId="toolshed.g2.bx.psu.edu/repos/iuc/abricate/abricate/0.9.8" parameterName="adv.db"/>
     </parameter>
     <parameter name="abricate-2-adv.min_dna_id" defaultValue="75.0">
-      <toolParameter toolId="toolshed.g2.bx.psu.edu/repos/iuc/abricate/abricate/0.9.3" parameterName="adv.min_dna_id"/>
+      <toolParameter toolId="toolshed.g2.bx.psu.edu/repos/iuc/abricate/abricate/0.9.8" parameterName="adv.min_dna_id"/>
     </parameter>
     <parameter name="screen_abricate_report-3-abricate_screening_file" required="true">
       <dynamicSource>
           <galaxyToolDataTable name="abricate_report_screening_files" displayColumn="name" parameterColumn="value" />
       </dynamicSource>
-      <toolParameter toolId="testtoolshed.g2.bx.psu.edu/repos/dfornika/screen_abricate_report/screen_abricate_report/0.1.0" parameterName="screening_file"/>
+      <toolParameter toolId="toolshed.g2.bx.psu.edu/repos/public-health-bioinformatics/screen_abricate_report/screen_abricate_report/0.1.0" parameterName="screening_file"/>
     </parameter>
   </parameters>
   <outputs>
@@ -78,14 +78,14 @@
     <repository>
       <name>screen_abricate_report</name>
       <owner>public-health-bioinformatics</owner>
-      <url>https://testtoolshed.g2.bx.psu.edu</url>
-      <revision>2c6153023368</revision>
+      <url>https://toolshed.g2.bx.psu.edu</url>
+      <revision>b2d56a44a872</revision>
     </repository>
     <repository>
       <name>data_manager_manual</name>
       <owner>iuc</owner>
       <url>https://toolshed.g2.bx.psu.edu</url>
-      <revision>1c1e228884d3</revision>
+      <revision>744f607fac50</revision>
     </repository>
   </toolRepositories>
 </iridaWorkflow>
