@@ -15,7 +15,7 @@ This can be used to detect the presence of specific resistance genes in a sample
    * [Installation](#installation)
       * [Installing Galaxy Dependencies](#installing-galaxy-dependencies)
       * [Installing to IRIDA](#installing-to-irida)
-      * [Setting up your abricate report screening file(s)](#setting-up-your-abricate-screening-files)
+      * [Setting up your abricate report screening file(s)](#setting-up-your-abricate-report-screening-files)
    * [Usage](#usage)
       * [Analysis Results](#analysis-results)
       * [Metadata Table](#metadata-table)
@@ -46,7 +46,7 @@ Please download the provided `irida-plugin-resistance-screen-[version].jar` from
 
 *Note:* This plugin requires you to be running IRIDA version >= `19.01`. Please see the [IRIDA][] documentation for more details.
 
-## Setting up your abricate screening file(s)
+## Setting up your abricate report screening file(s)
 
 Abricate report screening files have a simple tabular format, and can be created with Excel, another spreadsheet application,
 or a plaintext editor. They consist of two columns, with headings `gene_name` and `regex`. All fields should be tab-delimited.
@@ -57,6 +57,13 @@ KPC          KPC
 OXA-48       OXA\-48
 NDM          NDM
 ```
+
+## Preparing the 'abricate_report_screening_files' Tool Data Table in Galaxy
+
+This workflow requires that the abricate report screening files described above are made available via a 
+[Galaxy Tool Data Table](https://galaxyproject.org/admin/tools/data-tables/) called `abricate_report_screening_files`.
+We recommend that you use the [`data_manager_manual`](https://github.com/galaxyproject/tools-iuc/tree/master/data_managers/data_manager_manual) 
+tool to manage that data table.
 
 # Usage
 
