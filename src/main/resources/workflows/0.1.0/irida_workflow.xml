@@ -15,7 +15,7 @@
     <parameter name="shovill-1-adv.mincov" defaultValue="2">
       <toolParameter toolId="toolshed.g2.bx.psu.edu/repos/iuc/shovill/shovill/1.0.4" parameterName="adv.mincov" label="Minimum contig coverage" type="integer"/>
     </parameter>
-    <parameter name="shovill-1-trim" defaultValue="false">
+    <parameter name="shovill-1-trim" defaultValue="true">
       <toolParameter toolId="toolshed.g2.bx.psu.edu/repos/iuc/shovill/shovill/1.0.4" parameterName="trim" label="Trim reads" type="boolean"/>
     </parameter>
     <parameter name="shovill-1-adv.namefmt" defaultValue="contig%05d">
