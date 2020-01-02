@@ -1,6 +1,6 @@
-[![Build Status](https://travis-ci.org/dfornika/irida-plugin-resistance-screen.svg?branch=master)](https://travis-ci.org/dfornika/irida-plugin-resistance-screen)
-[![codecov](https://codecov.io/gh/dfornika/irida-plugin-resistance-screen/branch/master/graph/badge.svg)](https://codecov.io/gh/dfornika/irida-plugin-resistance-screen)
-[![Current Release Version](https://img.shields.io/github/release/dfornika/irida-plugin-resistance-screen.svg)](https://github.com/dfornika/irida-plugin-resistance-screen/releases)
+[![Build Status](https://travis-ci.org/Public-Health-Bioinformatics/irida-plugin-resistance-screen.svg?branch=master)](https://travis-ci.org/Public-Health-Bioinformatics/irida-plugin-resistance-screen)
+[![codecov](https://codecov.io/gh/Public-Health-Bioinformatics/irida-plugin-resistance-screen/branch/master/graph/badge.svg)](https://codecov.io/gh/Public-Health-Bioinformatics/irida-plugin-resistance-screen)
+[![Current Release Version](https://img.shields.io/github/release/Public-Health-Bioinformatics/irida-plugin-resistance-screen.svg)](https://github.com/Public-Health-Bioinformatics/irida-plugin-resistance-screen/releases)
 
 # IRIDA Resistance-Screen Pipeline Plugin
 
