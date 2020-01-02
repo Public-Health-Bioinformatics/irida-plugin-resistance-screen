@@ -70,14 +70,14 @@ public class ResistanceScreenPlugin extends Plugin {
 		 * <strong>id</strong> entry in the <strong>irida_workflow.xml</strong> file.
 		 * 
 		 * <pre>
-		 * {@code <id>ca1a52d1-871e-41ff-8a72-ac828f27da86</id>}
+		 * {@code <id>1f40bbf2-4080-4cf7-a846-988e602eaa30</id>}
 		 * </pre>
 		 * 
 		 * @return A {@link UUID} defining the id of this pipeline.
 		 */
 		@Override
 		public UUID getDefaultWorkflowUUID() {
-			return UUID.fromString("ca1a52d1-871e-41ff-8a72-ac828f27da86");
+			return UUID.fromString("1f40bbf2-4080-4cf7-a846-988e602eaa30");
 		}
 
 		/*******************************************************************************
