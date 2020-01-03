@@ -96,11 +96,15 @@ public class ResistanceScreenPluginUpdater implements AnalysisSampleUpdater {
 			for (Map<String, String> geneDetectionStatus : geneDetectionStatuses) {
 				String geneName = geneDetectionStatus.get("gene_name");
 				String geneDetected = geneDetectionStatus.get("detected");
-				PipelineProvidedMetadataEntry geneDetectedEntry = new PipelineProvidedMetadataEntry(geneDetected, "boolean", analysis);
-
-				// key will be string like 'abricate-screen/KPC/detected'
-				String key = workflowName + "/" + geneName + "/" + "detected";
+				String alleles = geneDetectionStatus.get("alleles");
+				PipelineProvidedMetadataEntry geneDetectedEntry = new PipelineProvidedMetadataEntry(geneDetected, "xs:boolean", analysis);
+				PipelineProvidedMetadataEntry allelesEntry = new PipelineProvidedMetadataEntry(alleles, "xs:string", analysis);
+				// key will be string like 'resistance-screen/KPC/detected'
+				String key;
+				key = workflowName + "/" + geneName + "/" + "detected";
 				metadataEntries.put(key, geneDetectedEntry);
+				key = workflowName + "/" + geneName + "/" + "alleles";
+				metadataEntries.put(key, allelesEntry);
 			}
 
 			Map<MetadataTemplateField, MetadataEntry> metadataMap = metadataTemplateService.getMetadataMap(metadataEntries);
@@ -125,8 +129,8 @@ public class ResistanceScreenPluginUpdater implements AnalysisSampleUpdater {
 	 *                 the pipeline. This file should contain contents like:
 	 * 
 	 *                 <pre>
-	 * gene_name	detected
-	 * KPC	True
+	 * gene_name	detected	alleles
+	 * KPC	True	KPC-2
 	 * OXA	False
 	 *                 </pre>
 	 * 
@@ -147,7 +151,7 @@ public class ResistanceScreenPluginUpdater implements AnalysisSampleUpdater {
 			HashMap<String, String> geneDetectionStatus = new HashMap<>();
 			String geneDetectionStatusLine;
 			while (( geneDetectionStatusLine = geneDetectionStatusReader.readLine()) != null) {
-				String[] geneDetectionStatusEntries = geneDetectionStatusLine.split("\t");
+				String[] geneDetectionStatusEntries = geneDetectionStatusLine.split("\t", -1);
 				for (int i = 0; i < fieldNames.length; i++) {
 					geneDetectionStatus.put(fieldNames[i], geneDetectionStatusEntries[i]);
 				}

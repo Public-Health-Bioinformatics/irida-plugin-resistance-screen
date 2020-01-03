@@ -1,5 +1,5 @@
 {
-    "uuid": "ff342837-3b3c-46cc-b778-3a5631bbc53e",
+    "uuid": "8d444915-9626-4acf-a59c-b6056a7b8bb3",
     "tags": [],
     "format-version": "0.1",
     "name": "resistance-screen",
@@ -12,7 +12,7 @@
             "workflow_outputs": [
                 {
                     "output_name": "output",
-                    "uuid": "b2e37a7d-044c-468f-ab7a-e42e3b00048e",
+                    "uuid": "010f9985-5838-41d7-bb8e-aed39f941a7b",
                     "label": null
                 }
             ],
@@ -277,8 +277,8 @@
             "type": "tool"
         },
         "4": {
-            "tool_id": "toolshed.g2.bx.psu.edu/repos/public-health-bioinformatics/screen_abricate_report/screen_abricate_report/0.3.0",
-            "tool_version": "0.3.0",
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/public-health-bioinformatics/screen_abricate_report/screen_abricate_report/0.4.0+galaxy0",
+            "tool_version": "0.4.0+galaxy0",
             "outputs": [
                 {
                     "type": "tabular",
@@ -296,17 +296,17 @@
             "workflow_outputs": [
                 {
                     "output_name": "gene_detection_status",
-                    "uuid": "cd8ac0ac-0204-4e34-a0c7-db57e48a87bd",
+                    "uuid": "4f09a150-7a8a-473c-b14e-785550da810c",
                     "label": null
                 },
                 {
                     "output_name": "output_screening_file",
-                    "uuid": "8e25576d-cfc1-4dfd-973a-9b3543480748",
+                    "uuid": "b0f2c40e-2e4e-48b0-a437-738618072702",
                     "label": null
                 },
                 {
                     "output_name": "screened_report",
-                    "uuid": "cc332d71-a8d1-4405-9c16-a5bd1998d935",
+                    "uuid": "0c7ce13e-4a12-47cd-9832-edff13b0e84c",
                     "label": null
                 }
             ],
@@ -316,15 +316,15 @@
                     "id": 2
                 }
             },
-            "tool_state": "{\"__page__\": null, \"min_coverage\": \"\\\"90.0\\\"\", \"screening_file_source\": \"{\\\"__current_case__\\\": 0, \\\"screening_file\\\": \\\"b31f4cbb-2565-44ee-848f-7fcd6b5a86eb\\\", \\\"screening_file_source_selector\\\": \\\"tool_data_table\\\"}\", \"abricate_report\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__rerun_remap_job_id__\": null, \"min_identity\": \"\\\"90.0\\\"\"}",
+            "tool_state": "{\"__page__\": null, \"min_coverage\": \"\\\"90.0\\\"\", \"screening_file_source\": \"{\\\"__current_case__\\\": 0, \\\"screening_file\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"screening_file_source_selector\\\": \\\"tool_data_table\\\"}\", \"abricate_report\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__rerun_remap_job_id__\": null, \"min_identity\": \"\\\"90.0\\\"\"}",
             "id": 4,
             "tool_shed_repository": {
                 "owner": "public-health-bioinformatics",
-                "changeset_revision": "2262e531c50b",
+                "changeset_revision": "22247b1a59d5",
                 "name": "screen_abricate_report",
                 "tool_shed": "toolshed.g2.bx.psu.edu"
             },
-            "uuid": "93066c74-cee0-4184-90ff-9650e5b316f7",
+            "uuid": "d97fbdd9-52b2-42a2-b4b7-b0f111f6da3a",
             "errors": null,
             "name": "Screen Abricate Report",
             "post_job_actions": {
@@ -353,16 +353,20 @@
             "label": null,
             "inputs": [
                 {
+                    "name": "screening_file_source",
+                    "description": "runtime parameter for tool Screen Abricate Report"
+                },
+                {
                     "name": "abricate_report",
                     "description": "runtime parameter for tool Screen Abricate Report"
                 }
             ],
             "position": {
-                "top": 219.5,
-                "left": 848
+                "top": 306.5,
+                "left": 870.5
             },
             "annotation": "",
-            "content_id": "toolshed.g2.bx.psu.edu/repos/public-health-bioinformatics/screen_abricate_report/screen_abricate_report/0.3.0",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/public-health-bioinformatics/screen_abricate_report/screen_abricate_report/0.4.0+galaxy0",
             "type": "tool"
         }
     },

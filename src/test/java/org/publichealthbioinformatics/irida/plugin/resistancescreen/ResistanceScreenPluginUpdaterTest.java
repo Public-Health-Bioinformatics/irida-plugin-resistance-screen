@@ -32,8 +32,8 @@ import ca.corefacility.bioinformatics.irida.service.workflow.IridaWorkflowsServi
 
 
 public class ResistanceScreenPluginUpdaterTest {
-    private String WORKFLOW_NAME = "abricate-screen";
-    private String WORKFLOW_VERSION = "0.1.0";
+    private String WORKFLOW_NAME = "resistance-screen";
+    private String WORKFLOW_VERSION = "0.2.0";
 
     private ResistanceScreenPluginUpdater updater;
 
@@ -64,11 +64,14 @@ public class ResistanceScreenPluginUpdaterTest {
     @Test
     public void testUpdate() throws Throwable {
         ImmutableMap<String, String> expectedResults = ImmutableMap.<String, String>builder()
-                .put("abricate-screen/KPC/detected", "False")
-                .put("abricate-screen/NDM/detected", "True")
-                .put("abricate-screen/OXA/detected", "True")
+                .put("resistance-screen/KPC/detected", "False")
+                .put("resistance-screen/KPC/alleles", "")
+                .put("resistance-screen/NDM/detected", "False")
+                .put("resistance-screen/NDM/alleles", "")
+                .put("resistance-screen/OXA/detected", "True")
+                .put("resistance-screen/OXA/alleles", "OXA-9,OXA-48")
                 .build();
-        Path geneDetectionStatusFilePath = Paths.get(ClassLoader.getSystemResource("gene_detection_status.tsv").toURI());
+        Path geneDetectionStatusFilePath = Paths.get(ClassLoader.getSystemResource("SAMN11840203-gene_detection_status.tsv").toURI());
 
         AnalysisOutputFile geneDetectionStatusFile = new AnalysisOutputFile(geneDetectionStatusFilePath, null, null, null);
         Analysis analysis = new Analysis(null, ImmutableMap.of("gene_detection_status", geneDetectionStatusFile), null, null);
@@ -116,12 +119,15 @@ public class ResistanceScreenPluginUpdaterTest {
 
     @Test
     public void testParseGeneDetectionStatusFile() throws Throwable {
-        Path geneDetectionStatusFilePath = Paths.get(ClassLoader.getSystemResource("gene_detection_status.tsv").toURI());
-        List<Map<String, String>> geneDetectionStatuses = updater.parseGeneDetectionStatusFile(geneDetectionStatusFilePath);
-        for (Map<String, String> geneDetectionStatus : geneDetectionStatuses) {
-            assertThat(geneDetectionStatus, IsMapContaining.hasKey("gene_name"));
-            assertThat(geneDetectionStatus, IsMapContaining.hasKey("detected"));
+        ArrayList<String> sampleIds = new ArrayList<>(Arrays.asList("SAMN11840202", "SAMN11840203"));
+        for(String sampleId:sampleIds) {
+            Path geneDetectionStatusFilePath = Paths.get(ClassLoader.getSystemResource(sampleId + "-gene_detection_status.tsv").toURI());
+            List<Map<String, String>> geneDetectionStatuses = updater.parseGeneDetectionStatusFile(geneDetectionStatusFilePath);
+            for (Map<String, String> geneDetectionStatus : geneDetectionStatuses) {
+                assertThat(geneDetectionStatus, IsMapContaining.hasKey("gene_name"));
+                assertThat(geneDetectionStatus, IsMapContaining.hasKey("detected"));
+                assertThat(geneDetectionStatus, IsMapContaining.hasKey("alleles"));
+            }
         }
-
     }
 }

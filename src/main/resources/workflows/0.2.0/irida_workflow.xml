@@ -25,13 +25,13 @@
       <dynamicSource>
           <galaxyToolDataTable name="abricate_report_screening_files" displayColumn="name" parameterColumn="value" />
       </dynamicSource>
-      <toolParameter toolId="toolshed.g2.bx.psu.edu/repos/public-health-bioinformatics/screen_abricate_report/screen_abricate_report/0.3.0" parameterName="screening_file_source.screening_file"/>
+      <toolParameter toolId="toolshed.g2.bx.psu.edu/repos/public-health-bioinformatics/screen_abricate_report/screen_abricate_report/0.4.0+galaxy0" parameterName="screening_file_source.screening_file"/>
     </parameter>
     <parameter name="screen_abricate_report-4-min_coverage" defaultValue="90.0">
-      <toolParameter toolId="toolshed.g2.bx.psu.edu/repos/public_health_bioinformatics/screen_abricate_report/screen_abricate_report/0.3.0" parameterName="min_coverage"/>
+      <toolParameter toolId="toolshed.g2.bx.psu.edu/repos/public_health_bioinformatics/screen_abricate_report/screen_abricate_report/0.4.0+galaxy0" parameterName="min_coverage"/>
     </parameter>
     <parameter name="screen_abricate_report-4-min_identity" defaultValue="90.0">
-      <toolParameter toolId="toolshed.g2.bx.psu.edu/repos/public_health_bioinformatics/screen_abricate_report/screen_abricate_report/0.3.0" parameterName="min_identity"/>
+      <toolParameter toolId="toolshed.g2.bx.psu.edu/repos/public_health_bioinformatics/screen_abricate_report/screen_abricate_report/0.4.0+galaxy0" parameterName="min_identity"/>
     </parameter>
   </parameters>
   <outputs>
@@ -65,7 +65,7 @@
       <name>screen_abricate_report</name>
       <owner>public-health-bioinformatics</owner>
       <url>https://toolshed.g2.bx.psu.edu</url>
-      <revision>2262e531c50b</revision>
+      <revision>22247b1a59d5</revision>
     </repository>
     <repository>
       <name>data_manager_manual</name>
