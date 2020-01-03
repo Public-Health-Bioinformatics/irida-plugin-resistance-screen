@@ -38,8 +38,8 @@
             "type": "data_collection_input"
         },
         "1": {
-            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/shovill/shovill/1.0.4+galaxy0",
-            "tool_version": "1.0.4+galaxy0",
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/shovill/shovill/1.0.4",
+            "tool_version": "1.0.4",
             "outputs": [
                 {
                     "type": "txt",
@@ -76,7 +76,7 @@
             "id": 1,
             "tool_shed_repository": {
                 "owner": "iuc",
-                "changeset_revision": "d9f6a00b6db7",
+                "changeset_revision": "865119fcb694",
                 "name": "shovill",
                 "tool_shed": "toolshed.g2.bx.psu.edu"
             },
@@ -111,7 +111,7 @@
                 "left": 261.5
             },
             "annotation": "",
-            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/shovill/shovill/1.0.4+galaxy0",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/shovill/shovill/1.0.4",
             "type": "tool"
         },
         "2": {
