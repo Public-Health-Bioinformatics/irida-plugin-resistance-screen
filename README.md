@@ -36,7 +36,7 @@ managers within your Galaxy instance. These can be found at:
 | shovill                            | `1.0.4`         | `iuc`                          | 3 (2018-11-13)    | [shovill-3:865119fcb694](https://toolshed.g2.bx.psu.edu/view/iuc/shovill/865119fcb694)                                                            |
 | quast                              | `5.0.2`         | `iuc`                          | 5 (2018-12-04)    | [quast-5:81df4950d65b](https://toolshed.g2.bx.psu.edu/view/iuc/quast/81df4950d65b)                                                                |
 | abricate                           | `0.9.8`         | `iuc`                          | 7 (2019-10-29)    | [abricate-7:4efdca267d51](https://toolshed.g2.bx.psu.edu/view/iuc/abricate/4efdca267d51)                                                          |
-| screen_abricate_report             | `0.1.0`         | `public-health-bioinformatics` | 0 (2019-10-31)    | [screen_abricate_report-0:b2d56a44a872](https://toolshed.g2.bx.psu.edu/view/public-health-bioinformatics/screen_abricate_report/b2d56a44a872)     |
+| screen_abricate_report             | `0.4.0`         | `public-health-bioinformatics` | 4 (2020-01-02)    | [screen_abricate_report-4:22247b1a59d5](https://toolshed.g2.bx.psu.edu/view/public-health-bioinformatics/screen_abricate_report/22247b1a59d5)     |
 | data_manager_manual                | `0.0.2`         | `iuc`                          | 5 (2019-10-21)    | [data_manager_manual-5:744f607fac50](https://toolshed.g2.bx.psu.edu/view/iuc/data_manager_manual/744f607fac50)                                    |
 
 ## Installing to IRIDA
@@ -49,13 +49,13 @@ Please download the provided `irida-plugin-resistance-screen-[version].jar` from
 ## Setting up your abricate report screening file(s)
 
 Abricate report screening files have a simple tabular format, and can be created with Excel, another spreadsheet application,
-or a plaintext editor. They consist of two columns, with headings `gene_name` and `regex`. All fields should be tab-delimited.
+or a plaintext editor. They consist of two columns, with headings `gene_name` and `regex`. All fields must be tab-delimited.
 
 ```
 gene_name    regex
-KPC          KPC
-OXA-48       OXA\-48
-NDM          NDM
+KPC          ^KPC-\d+$
+OXA          ^OXA-\d+$
+NDM          ^NDM-\d+$
 ```
 
 ## Preparing the 'abricate_report_screening_files' Tool Data Table in Galaxy
@@ -86,9 +86,10 @@ report, and a screened `abricate` report that includes only your genes of intere
 And, you should be able to save and view these results in the IRIDA metadata table. The following fields are written to
 the IRIDA 'Line List':
 
-| Field Name                                 | Description                                               |
-|--------------------------------------------|-----------------------------------------------------------|
-| resistance-screen/<GENE_NAME>/detected     | Whether or not `GENE_NAME` was detected (True/False)      |
+| Field Name                                 | Description                                                                                                |
+|--------------------------------------------|------------------------------------------------------------------------------------------------------------|
+| resistance-screen/<GENE_NAME>/detected     | Whether or not `GENE_NAME` was detected (True/False)                                                       |
+| resistance-screen/<GENE_NAME>/alleles      | Any allele(s) detected for `GENE_NAME`. If multiple alleles detected, commma-delimited (eg: `KPC-2,KPC-3`) |
 
 **Note**: If your abricate report screening file contains many genes, this will result in many columns 
 
