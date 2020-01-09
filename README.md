@@ -36,7 +36,7 @@ managers within your Galaxy instance. These can be found at:
 | shovill                            | `1.0.4`         | `iuc`                          | 3 (2018-11-13)    | [shovill-3:865119fcb694](https://toolshed.g2.bx.psu.edu/view/iuc/shovill/865119fcb694)                                                            |
 | quast                              | `5.0.2`         | `iuc`                          | 5 (2018-12-04)    | [quast-5:81df4950d65b](https://toolshed.g2.bx.psu.edu/view/iuc/quast/81df4950d65b)                                                                |
 | abricate                           | `0.9.8`         | `iuc`                          | 7 (2019-10-29)    | [abricate-7:4efdca267d51](https://toolshed.g2.bx.psu.edu/view/iuc/abricate/4efdca267d51)                                                          |
-| screen_abricate_report             | `0.4.0`         | `public-health-bioinformatics` | 4 (2020-01-02)    | [screen_abricate_report-4:22247b1a59d5](https://toolshed.g2.bx.psu.edu/view/public-health-bioinformatics/screen_abricate_report/22247b1a59d5)     |
+| screen_abricate_report             | `0.4.0`         | `public-health-bioinformatics` | 4 (2020-01-03)    | [screen_abricate_report-4:22247b1a59d5](https://toolshed.g2.bx.psu.edu/view/public-health-bioinformatics/screen_abricate_report/22247b1a59d5)     |
 | data_manager_manual                | `0.0.2`         | `iuc`                          | 5 (2019-10-21)    | [data_manager_manual-5:744f607fac50](https://toolshed.g2.bx.psu.edu/view/iuc/data_manager_manual/744f607fac50)                                    |
 
 ## Installing to IRIDA
